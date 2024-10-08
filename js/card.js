@@ -1,1 +1,87 @@
-console.log("hi");
+// Fetch button catagories
+const loadButton = () =>{
+    fetch('https://openapi.programming-hero.com/api/peddy/categories')
+   .then(response => response.json())
+   .then(data => {
+    displayButton(data.categories);
+   })
+    .catch((error) => console.error(error))
+}
+
+const displayButton = (catagories) =>{
+    const containerButton = document.getElementById("btn-id");
+  for(const catagory of catagories) {
+        console.log(catagory);
+        
+        const button = document.createElement("button");
+        button.classList = "btn btn-outline font-bold"
+        button.innerHTML =
+        `
+        <img class="w-10 pr-2" src=${catagory.category_icon}
+        alt="Logo" />
+        ${catagory.category}
+        `
+        containerButton.append(button);
+    }
+}
+const loadCard = () =>{
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+   .then(response => response.json())
+   .then(data => {
+    displayCard
+    (data.pets);
+   })
+    .catch((error) => console.error(error))
+}
+const displayCard = (pets) =>{
+    const containerDiv = document.getElementById("section-card");
+    pets.forEach(pet => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList = "card bg-base-100 w-96 shadow-xl"
+        cardDiv.innerHTML=`
+        <figure class="px-10 pt-10">
+        <img class="w-[400px] object-cover rounded-xl"
+      src="${pet.image}"
+      alt="Shoes"
+      class="rounded-xl" />
+      </figure>
+      <div class="card-body text-left">
+      <h2 class="card-title">${pet.pet_name}</h2>
+      ${pet.breed == undefined ?"Breed: Normal breed" : `<p class="flex items-center gap-1 text-sm text-nav_color py-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+      </svg>
+      Breed: ${pet.breed}
+      </p>` }
+     ${pet.date_of_birth == undefined ? `<div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 flex">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+     </svg> <p>Birth: Not available </p></div>` : `<p class="flex items-center gap-1 text-sm text-nav_color py-2">
+     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+     </svg>
+      Birth: ${pet.date_of_birth}
+     </p>`}
+     ${pet.gender == undefined ? `<div class="flex items-center gap-1"><img class="w-[20px]" src="https://img.icons8.com/?size=50&id=1665&format=png"/>
+     <p>Gender: Not available</p></div>` : `<p class="flex items-center gap-1 text-sm  text-nav_color py-2"><img class="w-[20px]" src="https://img.icons8.com/?size=50&id=1665&format=png"/>
+      Gender: ${pet.gender}
+     </p>`}
+     ${pet.price == undefined ? `<div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+     </svg>
+     <p>Price: Not available</p></div>` : `
+     <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+     </svg>
+     <p class="flex items-center gap-1 text-sm  text-nav_color py-2">Price: ${pet.price}$</p>
+      
+      </div>`}
+
+       `
+       containerDiv.append(cardDiv);
+    });
+    
+}
+
+loadCard();
+loadButton();
+
