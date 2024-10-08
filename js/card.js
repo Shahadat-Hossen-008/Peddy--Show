@@ -8,21 +8,29 @@ const loadButton = () =>{
     .catch((error) => console.error(error))
 }
 
+const dataLoadCard = (id) => {
+    //fetch
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        displayCard(data.data);
+    })
+     .catch((error) => console.error(error))
+}
+
 const displayButton = (catagories) =>{
     const containerButton = document.getElementById("btn-id");
-  for(const catagory of catagories) {
-        console.log(catagory);
-        
-        const button = document.createElement("button");
-        button.classList = "btn btn-outline font-bold"
-        button.innerHTML =
-        `
+    catagories.forEach(catagory => {
+        const containerBtnDiv = document.createElement("div");
+        containerBtnDiv.innerHTML =`
+        <button onclick= "dataLoadCard('${catagory.category}')" class="btn btn-outline font-bold w-full">
         <img class="w-10 pr-2" src=${catagory.category_icon}
         alt="Logo" />
         ${catagory.category}
+        </button>
         `
-        containerButton.append(button);
-    }
+        containerButton.append(containerBtnDiv);
+    });
 }
 const loadCard = () =>{
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
@@ -35,16 +43,30 @@ const loadCard = () =>{
 }
 const displayCard = (pets) =>{
     const containerDiv = document.getElementById("section-card");
+    containerDiv.innerHTML = "";
+    if(pets.length == 0){
+        containerDiv.classList.remove("grid");
+        containerDiv.innerHTML = `
+        <div class="min-h-[300px] flex flex-col justify-center items-center">
+        <img  src="images/error.webp"/>
+        <h2 class="text-5xl font-bold text-black">No Information Available</h2>
+        </div>
+        `;
+        return;
+    }
+    else{
+        containerDiv.classList.add("grid");
+    }
     pets.forEach(pet => {
         const cardDiv = document.createElement("div");
-        cardDiv.classList = "card bg-base-100 w-96 shadow-xl"
+        cardDiv.classList = "card bg-base-100 w-96 shadow-xl mt-7";
         cardDiv.innerHTML=`
         <figure class="px-10 pt-10">
         <img class="w-[400px] object-cover rounded-xl"
-      src="${pet.image}"
-      alt="Shoes"
-      class="rounded-xl" />
-      </figure>
+        src="${pet.image}"
+        alt="Shoes"
+        class="rounded-xl" />
+        </figure>
       <div class="card-body text-left px-10">
       <h2 class="card-title">${pet.pet_name}</h2>
       ${pet.breed == undefined ?"Breed: Normal breed" : `<p class="flex items-center gap-1 text-sm text-nav_color py-2">
@@ -88,7 +110,6 @@ const displayCard = (pets) =>{
       Details
       </button>
       </div>
-
        `
        containerDiv.append(cardDiv);
     });
