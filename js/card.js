@@ -8,11 +8,25 @@ const loadButton = () =>{
     .catch((error) => console.error(error))
 }
 
+const removeActiveBtn = () =>{
+    const button = document.getElementsByClassName("btn-category");
+    for(const btn of button){
+        // btn.classList.remove("btn-outline");
+        btn.classList.remove("btn-accent");
+        btn.classList.remove("rounded-full");
+    }
+
+
+}
 const dataLoadCard = (id) => {
     //fetch
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then(response => response.json())
     .then(data => {
+        const addActiveBtn = document.getElementById(`btn-${id}`)
+        removeActiveBtn();
+        addActiveBtn.classList.add("btn-accent");
+        addActiveBtn.classList.add("rounded-full")
         displayCard(data.data);
     })
      .catch((error) => console.error(error))
@@ -23,7 +37,7 @@ const displayButton = (catagories) =>{
     catagories.forEach(catagory => {
         const containerBtnDiv = document.createElement("div");
         containerBtnDiv.innerHTML =`
-        <button onclick= "dataLoadCard('${catagory.category}')" class="btn btn-outline font-bold w-full">
+        <button id="btn-${catagory.category}" onclick= "dataLoadCard('${catagory.category}')" class="btn border-slate-400 font-bold w-full btn-category">
         <img class="w-10 pr-2" src=${catagory.category_icon}
         alt="Logo" />
         ${catagory.category}
