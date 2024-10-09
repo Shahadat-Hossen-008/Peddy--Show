@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peddy</title>
-    <link rel="stylesheet" href="css/style.css">
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,11 +100,11 @@
       <h1 class="text-6xl text-center font-extrabold py-3 w-8/12"> Your Path to Adoption Starts Here</h1>
       <p class="text-color_main text-center text-sm w-6/12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
       <div class="text-center py-3">
-        <button class="btn bg-btn_color text-white font-bold">View More</button>
+        <a href="#main-section"><button class="btn bg-btn_color text-white font-bold">View More</button></a>
       </div>
       <img class="flex items-center" src="images/pet.webp" alt="">
       <h2 class="text-color_main text-center text-4xl font-extrabold py-10">Adopt  Your  Best Friend</h2>
-      <p class="text-color_main text-center text-sm w-6/12"">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+      <p class="text-color_main text-center text-sm w-6/12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
       </div>
     </div>
     <!-- Banner section end -->
@@ -114,9 +113,17 @@
      <main id="main-section" class="w-11/12 mx-auto py-7">
       <div id="btn-id"  class="grid grid-cols-4 items-center w-full gap-3">
       </div>
-      <section id="section-card" class="grid grid-cols-3 gap-3">
-        
-      </section>
+      <div class="flex justify-between items-center mt-9">
+        <a href="#" class="text-color_main text-2xl font-extrabold">Best Deal For you</a>
+        <button class="btn bg-btn_color text-white font-bold">Sort by Price</button>
+      </div>
+      <div class="flex">
+        <section id="section-card" class="grid grid-cols-3 gap-3 pr-4 w-9/12 ">
+        </section>
+        <!-- Like button -->
+         <div id="like-btn" class="grid grid-cols-2 gap-2 p-2 border border-slate-700 min-h-72 w-3/12 mt-16 rounded-xl content-start ">
+         </div>
+      </div>
      </main>
     <script src="js/card.js"></script>
     <!-- https://github.com/programming-hero-web-course2/b10a6-pet-adoption-Shahadat-Hossen-008 -->
