@@ -118,13 +118,57 @@
         <button class="btn bg-btn_color text-white font-bold">Sort by Price</button>
       </div>
       <div class="flex">
+      
         <section id="section-card" class="grid grid-cols-3 gap-3 pr-4 w-9/12 ">
+          <!-- loader -->
+          <div id="loaderSection" class=" min-h-screen hidden text-center col-span-3">
+            <span class="loading loading-bars loading-lg mt-36"></span>
+          </div>
+          <div id="loaderSection2" class=" min-h-screen hidden text-center col-span-3">
+            <span class="loading loading-bars loading-lg mt-36"></span>
+          </div>
+        </section>
         </section>
         <!-- Like button -->
          <div id="like-btn" class="grid grid-cols-2 gap-2 p-2 border border-slate-700 min-h-72 w-3/12 mt-16 rounded-xl content-start ">
          </div>
       </div>
      </main>
+     <!-- Open the modal using ID.showModal() method -->
+      <button id="showModalData" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+      <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="containerPetDetails">
+          </div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- Open the modal using ID.showModal() method -->
+<!-- Open the modal using ID.showModal() method -->
+      <button id="showAdoptModalData" class="btn hidden" onclick="adopted.showModal()">open modal</button>
+      <dialog id="adopted" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="adopt-pet" class="flex flex-col justify-center items-center">
+            <img class="w-[40px]" src="https://cdn-icons-png.flaticon.com/512/3908/3908156.png" alt="handshake">
+            <h2 class="text-3xl font-extrabold">Congrates</h2>
+            <p>Adoption Process Is Start For Your Pet</p>
+            <h1 id="countDown" class="text-4xl font-extrabold">3</h1>
+          </div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal  -->
+              <!-- <button class="btn">Close</button> -->
+            </form>
+          </div>
+        </div>
+      </dialog>
+
     <script src="js/card.js"></script>
     <!-- https://github.com/programming-hero-web-course2/b10a6-pet-adoption-Shahadat-Hossen-008 -->
 
