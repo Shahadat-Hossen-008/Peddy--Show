@@ -97,14 +97,14 @@
     <!-- Banner section -->
     <div class="w-11/12 mx-auto py-7 px-5 flex flex-col items-center justify-center">
       <h4 class="text-color_primary text-center text-sm font-bold">Bringing Families Together 🔥</h4>
-      <h1 class="text-6xl text-center font-extrabold py-3 w-8/12"> Your Path to Adoption Starts Here</h1>
-      <p class="text-color_main text-center text-sm w-6/12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+      <h1 class="sm:text-6xl text-4xl text-center font-extrabold py-3 w-8/12"> Your Path to Adoption Starts Here</h1>
+      <p class="text-color_main text-center text-sm w-6/12">Whether you're looking for a playful puppy, a cuddly kitten, or a gentle rabbit, we have the perfect companion waiting for you. Finding the perfect pet for you.</p>
       <div class="text-center py-3">
         <a href="#main-section"><button class="btn bg-btn_color text-white font-bold">View More</button></a>
       </div>
       <img class="flex items-center" src="images/pet.webp" alt="">
-      <h2 class="text-color_main text-center text-4xl font-extrabold py-10">Adopt  Your  Best Friend</h2>
-      <p class="text-color_main text-center text-sm w-6/12">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+      <h2 class="text-color_main text-center sm:text-4xl text-2xl font-extrabold py-10">Adopt  Your  Best Friend</h2>
+      <p class="text-color_main text-center text-sm w-6/12"> We don’t just sell pets—we bring joy and companionship into your life. Each of our furry friends comes from loving homes, and we ensure they're healthy, happy, and ready to join their new families</p>
       </div>
     </div>
     <!-- Banner section end -->
@@ -113,7 +113,7 @@
      <main id="main-section" class="w-11/12 mx-auto py-7">
       <div id="btn-id"  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center w-full gap-3">
       </div>
-      <div class="flex justify-between items-center mt-9">
+      <div class="flex flex-col sm:flex-row justify-between items-center mt-9">
         <a href="#" class="text-color_main text-2xl font-extrabold">Best Deal For you</a>
         <button onclick="sortButton()" class="btn bg-btn_color text-white font-bold">Sort by Price</button>
       </div>
@@ -121,12 +121,12 @@
        <div id="loaderSection" class=" min-h-screen hidden text-center col-span-3">
         <span class="loading loading-bars loading-lg mt-36"></span>
       </div>
-      <div class="flex">
-        <section id="section-card" class="grid grid-cols-3 gap-3 pr-4 w-9/12 ">
+      <div class="flex flex-col sm:flex-row">
+        <section id="section-card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pr-4 sm:w-9/12  w-11/12">
         </section>
         </section>
         <!-- Like button -->
-         <div id="like-btn" class="grid grid-cols-2 gap-2 p-2 border border-slate-700 min-h-72 w-3/12 mt-16 rounded-xl content-start ">
+         <div id="like-btn" class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 border border-slate-700 min-h-72 w-9/12 sm:w-3/12 mt-16 rounded-xl content-start ">
          </div>
       </div>
      </main>
@@ -146,7 +146,7 @@
       </dialog>
 
       <!-- Open the modal using ID.showModal() method -->
-<!-- Open the modal using ID.showModal() method -->
+      <!-- Open the modal using ID.showModal() method -->
       <button id="showAdoptModalData" class="btn hidden" onclick="adopted.showModal()">open modal</button>
       <dialog id="adopted" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
@@ -166,9 +166,39 @@
       </dialog>
 
       <!-- footer section -->
+      <footer class=" bg-black text-white py-7">
+        <div class="footer p-24 w-11/12 mx-auto">
+          <nav>
+            <h1 class="flex items-center gap-3 text-3xl text-white font-bold mb-6"><img src="images/logo.webp" alt="">Peddy</h1>
+            <a class="link link-hover">Location: av. Washington 165, NY CA 54003</a>
+            <a class="link link-hover">Phone: +31 85 964 47 25</a>
+            <a class="link link-hover">Email: info@yourdomain.com</a>
+            <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+          </nav>
+          
+          <nav>
+            <h6 class="text-xl font-bold mb-6">Useful Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">About Us</a>
+            <a class="link link-hover">Animals</a>
+            <a class="link link-hover">Foundation</a>
+            <a class="link link-hover">Contact</a>
+          </nav>
+          <form>
+            <h6 class="text-xl font-bold mb-6">Drop a Message</h6>
+            <div class=" w-full">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                class="input text-white input-bordered sm:w-full bg-gray-950 mb-3" />
+            </div>
+            <button class="btn bg-btn_color text-white font-bold w-full">Subscribe</button>
+          </form>
+        </div>
+      </footer>
 
     <script src="js/card.js"></script>
-    <!-- https://github.com/programming-hero-web-course2/b10a6-pet-adoption-Shahadat-Hossen-008 -->
+    
 
   </body>
 </html>
