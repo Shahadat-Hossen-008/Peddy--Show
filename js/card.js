@@ -1,3 +1,5 @@
+const spinner = document.getElementById("loaderSection");
+
 // Fetch button catagories
 const loadButton = () =>{
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
@@ -19,6 +21,7 @@ const removeActiveBtn = () =>{
 
 }
 const dataLoadCard = (id) => {
+    spinner.classList.remove("hidden");
     //fetch
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then(response => response.json())
@@ -27,7 +30,11 @@ const dataLoadCard = (id) => {
         removeActiveBtn();
         addActiveBtn.classList.add("btn-accent");
         addActiveBtn.classList.add("rounded-full");
-        displayCard(data.data);
+        setTimeout(function () {
+            displayCard(data.data);
+            spinner.classList.add("hidden");
+        },2000)
+        
     })
      .catch((error) => console.error(error))
 }
@@ -47,12 +54,13 @@ const displayButton = (catagories) =>{
     });
 }
 const loadCard = () =>{
-    document.getElementById("loaderSection").classList.remove("hidden");
+    spinner.classList.remove("hidden");
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
    .then(response => response.json())
    .then(data => {
     setTimeout(function () {
         displayCard(data.pets);
+        spinner.classList.add("hidden");
     },2000)
     // displayCard(data.pets);
    })
@@ -121,7 +129,7 @@ const displayCard = (pets) =>{
      <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
      </svg>
       </button>
-      <button onclick="adoptPet()" class="btn text-btn_color border-slate-400">
+      <button onclick="adoptPet(this)" class="btn text-btn_color border-slate-400">
       Adopt
       </button>
        <button onclick="loadPetDetails(${pet.petId})" class="btn text-btn_color border-slate-400">
@@ -137,14 +145,13 @@ const displayCard = (pets) =>{
     const containerdiv = document.getElementById("like-btn");
     const div = document.createElement("div");
     div.innerHTML = `
-    <img class="rounded-xl" src= "${img}" alt="img"/>
+    <img class="rounded-xl w-[250px]" src= "${img}" alt="img"/>
     `
     containerdiv.appendChild(div);
  }
 
 //  Details function
 const loadPetDetails = async(petId)=>{
-    console.log(petId);
     const url = `https://openapi.programming-hero.com/api/peddy/pet/${petId}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -203,8 +210,11 @@ const displayLoadDetails = (data) =>{
 }
 
 // adopt pet
-const adoptPet = ()=>{
+const adoptPet = (button)=>{
+    button.disabled = true;
+    button.innerText = 'Adopted';
     document.getElementById("adopted").showModal();
+
     let num = 3;
    const count = document.getElementById("countDown");
   const countdown = setInterval(() =>{
@@ -219,6 +229,26 @@ const adoptPet = ()=>{
    
 }
 
+// sorted function
+const sortButton = () => {
+    spinner.classList.remove("hidden");
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+    .then(response => response.json())
+    .then(data => {
+        const petsWithPrices = data.pets.filter(pet => pet.price != null
+        );
+        // Sort pets by price (descending order)
+        petsWithPrices.sort((a, b) => b.price - a.price);
+        setTimeout(function () {
+            displayCard(petsWithPrices);
+            spinner.classList.add("hidden");
+        },2000)
+    })
+    .catch((error) => console.error('Error fetching pets:', error));
+}
+
+    
+sortButton()
  loadCard();
  loadButton();
 

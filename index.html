@@ -111,22 +111,18 @@
     
     <!-- Main section start -->
      <main id="main-section" class="w-11/12 mx-auto py-7">
-      <div id="btn-id"  class="grid grid-cols-4 items-center w-full gap-3">
+      <div id="btn-id"  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center w-full gap-3">
       </div>
       <div class="flex justify-between items-center mt-9">
         <a href="#" class="text-color_main text-2xl font-extrabold">Best Deal For you</a>
-        <button class="btn bg-btn_color text-white font-bold">Sort by Price</button>
+        <button onclick="sortButton()" class="btn bg-btn_color text-white font-bold">Sort by Price</button>
+      </div>
+       <!-- loader -->
+       <div id="loaderSection" class=" min-h-screen hidden text-center col-span-3">
+        <span class="loading loading-bars loading-lg mt-36"></span>
       </div>
       <div class="flex">
-      
         <section id="section-card" class="grid grid-cols-3 gap-3 pr-4 w-9/12 ">
-          <!-- loader -->
-          <div id="loaderSection" class=" min-h-screen hidden text-center col-span-3">
-            <span class="loading loading-bars loading-lg mt-36"></span>
-          </div>
-          <div id="loaderSection2" class=" min-h-screen hidden text-center col-span-3">
-            <span class="loading loading-bars loading-lg mt-36"></span>
-          </div>
         </section>
         </section>
         <!-- Like button -->
@@ -168,6 +164,8 @@
           </div>
         </div>
       </dialog>
+
+      <!-- footer section -->
 
     <script src="js/card.js"></script>
     <!-- https://github.com/programming-hero-web-course2/b10a6-pet-adoption-Shahadat-Hossen-008 -->
