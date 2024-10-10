@@ -103,20 +103,20 @@ const displayCard = (pets) =>{
       </p>` }
      ${pet.date_of_birth == undefined ? `<div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 flex">
      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-     </svg> <p>Birth: Not available </p></div>` : `<p class="flex items-center gap-1 text-sm text-nav_color py-2">
+     </svg> <p class="text-sm text-nav_color">Birth: Not available </p></div>` : `<p class="flex items-center gap-1 text-sm text-nav_color py-2">
      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
      </svg>
       Birth: ${pet.date_of_birth}
      </p>`}
      ${pet.gender == undefined ? `<div class="flex items-center gap-1"><img class="w-[20px]" src="https://img.icons8.com/?size=50&id=1665&format=png"/>
-     <p>Gender: Not available</p></div>` : `<p class="flex items-center gap-1 text-sm  text-nav_color py-2"><img class="w-[20px]" src="https://img.icons8.com/?size=50&id=1665&format=png"/>
+     <p class="text-sm text-nav_color">Gender: Not available</p></div>` : `<p class="flex items-center gap-1 text-sm  text-nav_color py-2"><img class="w-[20px]" src="https://img.icons8.com/?size=50&id=1665&format=png"/>
       Gender: ${pet.gender}
      </p>`}
      ${pet.price == undefined ? `<div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
      </svg>
-     <p>Price: Not available</p></div>` : `
+     <p class="text-sm text-nav_color">Price: Not available</p></div>` : `
      <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
      </svg>
@@ -247,8 +247,6 @@ const sortButton = () => {
     .catch((error) => console.error('Error fetching pets:', error));
 }
 
-    
-sortButton()
  loadCard();
  loadButton();
 
