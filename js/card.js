@@ -1,6 +1,6 @@
 const spinner = document.getElementById("loaderSection");
 
-// Fetch button catagories
+// Fetch button categories
 const loadButton = () =>{
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
    .then(response => response.json())
@@ -85,7 +85,7 @@ const displayCard = (pets) =>{
     }
     pets.forEach(pet => {
         const cardDiv = document.createElement("div");
-        cardDiv.classList = "card bg-base-100  shadow-xl mt-7";
+        cardDiv.classList = "card bg-base-100  shadow-xl mt-7 container-card";
         cardDiv.innerHTML=`
         <figure class="px-10 pt-10">
         <img class="w-[400px] object-cover rounded-xl"

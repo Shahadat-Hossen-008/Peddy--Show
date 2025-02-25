@@ -18,4 +18,4 @@
 <li>Promise and Fetch API</li>
 </ul>
 
-<p>Live link: https://peddy-pet-show.netlify.app/</p>
+<p>Live link: [https://peddy-pet-show.netlify.app/](https://zesty-heliotrope-097b40.netlify.app/)</p>
